@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+//siemka Bart
 public class Gameplay extends JPanel implements KeyListener, ActionListener{
 	private ImageIcon titleImage;
 	private int[] snakeXLength = new int[750];
