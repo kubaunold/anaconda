@@ -12,7 +12,8 @@ public class Main {
 
 		//obj.setBounds(10, 10, 905, 700);
 		
-		obj.setBounds(0, 0, 930, 700);
+		obj.setBounds(0, 0, 918, 700);	//actual game
+		//obj.setBounds(0, 0, 3840, 1200);	//my pc res
 		obj.setBackground(Color.black);
 		obj.setResizable(false);
 		obj.setVisible(true);
