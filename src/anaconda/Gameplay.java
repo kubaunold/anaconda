@@ -83,7 +83,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener{
 	private int moves = 0;
 	
 	private String Score="";
-	private String enemyLetter="A";
+	private char enemyLetter='C';
 	
  	//constructor; will run @ start
 	public Gameplay()
@@ -124,12 +124,15 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener{
 		g.drawRect(24, 74, 851, 577);
 		
 		//draw background for the gameplay
-		g.setColor(Color.gray);
+		g.setColor(Color.black);
 		g.fillRect(25, 75, 850, 575);
+		g.setColor(Color.red);
+		g.fillRect(780,15,100,20);
 		
 		g.setColor(Color.white);
-		g.setFont(new Font("arial",Font.PLAIN,14));
+		g.setFont(new Font("arial",Font.PLAIN,14));		
 		g.drawString("Word: "+Score,780,30);
+		
 		
 		
 		rightMouth = new ImageIcon("EduardoMouths/rightMouthEduardo.png");
@@ -199,14 +202,16 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener{
 			}
 		}
 		
-		enemyImage=new ImageIcon("EnemyLetters/A.png");
+		enemyImage=new ImageIcon("EnemyLetters/"+enemyLetter+".png");
 		if( (enemyXPos[xPos]== snakeXLength[0]) && (enemyYPos[yPos] == snakeYLength[0]) )
 		{
 			lengthOfSnake++;
 			xPos = random.nextInt(34);
 			yPos = random.nextInt(23);
+			whichLetter++;
 			Score+=enemyLetter;
-			//enemyLetter
+			enemyLetter=getNextLetter();		
+			
 		}
 		
 		enemyImage.paintIcon(this, g, enemyXPos[xPos], enemyYPos[yPos]);
@@ -237,9 +242,20 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener{
 	}
 
 	
-	//public String getNextLetter()
+	public char getNextLetter()
 	{
-		//return Words[whichWord].ge;
+		
+		if(whichLetter==Words[whichWord].length())
+			{
+			whichWord++;
+			whichLetter=0;
+			Score="";
+			}
+		
+		var tmp = Words[whichWord].toCharArray();
+		
+		
+		return tmp[whichLetter];
 	}
 	
 	@Override
