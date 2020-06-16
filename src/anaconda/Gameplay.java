@@ -75,8 +75,8 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener{
 		g.drawRect(24, 74, 851, 577);
 		
 		//draw background for the gameplay
-		g.setColor(Color.black);
-		g.drawRect(25, 75, 850, 575);
+		g.setColor(Color.gray);
+		g.fillRect(25, 75, 850, 575);
 		
 		
 		rightMouth = new ImageIcon("EduardoMouths/rightMouthEduardo.png");
